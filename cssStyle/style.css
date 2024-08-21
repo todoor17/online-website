@@ -1,0 +1,12 @@
+body {
+    background-color: black;
+}
+
+div {
+    left: 0;
+    color: white;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    width: 100%;
+}
