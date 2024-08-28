@@ -1,0 +1,28 @@
+body {
+    background-color: black;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    color: white;
+}
+
+#myButton {
+    background-color: white;
+    font-weight: bold;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 2px;
+}
+
+#myButton:hover {
+    background-color: #E90074;
+
+}
+
+#message {
+    font-size: 50px;
+}
