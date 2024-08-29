@@ -1,28 +1,54 @@
 body {
     background-color: black;
     height: 100vh;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    transition: background-color 1s ease; /* Smooth color transition */
+}
+
+.buttonContainer {
     display: flex;
-    flex-direction: row;
+    height: calc(100vh - 7vh);
     align-items: center;
     justify-content: center;
-    overflow: hidden;
-    color: white;
 }
 
 #myButton {
     background-color: white;
-    font-weight: bold;
-    width: 100px;
-    height: 100px;
+    width: 125px;
+    height: 125px;
     border-radius: 50%;
     border: 2px;
+    align-items: center;
+    justify-content: space-around;
+    margin-left: 10vh;
+    margin-right: 10vh;
 }
 
 #myButton:hover {
-    background-color: #E90074;
-
+    background-color: black;
+    color: white;
+    font-weight: bolder;
+    transition: 0.5s ease;
 }
 
 #message {
     font-size: 50px;
+    color: white;
 }
+
+.container {
+    background-color: white;
+    height: 7vh;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.image {
+    width: 3vh;
+    height: auto;
+}
+

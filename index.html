@@ -7,8 +7,28 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <h3 id="message"> </h3>
-        <button id="myButton" onclick="printMessage()"> Press me!</buttton>
-        <script src="script.js"></script>
+        <div class="container">
+            <div> 
+                <a href="https://www.instagram.com/ioan.todor/"> 
+                  <img class="image" src="images/ig_logo.png">
+                </a>
+            </div>
+            <div>  
+                <a href="https://github.com/todoor17">
+                    <img class="image" src="images/git_logo.png">
+                </a>
+            </div>
+            <div> 
+                <a href="https://www.linkedin.com/in/ioan-todor-22a3aa2a1/">
+                    <img class="image" src="images/linkedin_logo.png">
+                </a>
+            </div>
+        </div>
+        <div class="buttonContainer">
+          <button id="myButton" onclick="changeColorRandom()"> Random color </button>
+          <button id="myButton" onclick="changeColorControlled()"> Controlled color </button>
+          <h3 class ="text" id="message">  </h3>
+        </div>
+            <script src="script.js"></script>
     </body>
 </html>
