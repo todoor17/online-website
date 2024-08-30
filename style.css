@@ -1,54 +1,49 @@
 body {
     background-color: black;
-    height: 100vh;
-    overflow: hidden;
     margin: 0;
     padding: 0;
-    transition: background-color 1s ease; /* Smooth color transition */
 }
 
-.buttonContainer {
+.lower-part {
     display: flex;
-    height: calc(100vh - 7vh);
+    flex-direction: row;
+    align-items: center;
+    justify-content: center; 
+    background-color: black;
+    height: 100vh;
+    width: 100%;
+}
+
+.lower-part-container {
+    display: flex;
+    flex-direction: column; 
     align-items: center;
     justify-content: center;
+    margin: 20px;
+    height: 70%;
+    width: 20%;
+    gap: 10vh; 
 }
 
-#myButton {
-    background-color: white;
-    width: 125px;
-    height: 125px;
-    border-radius: 50%;
-    border: 2px;
-    align-items: center;
-    justify-content: space-around;
-    margin-left: 10vh;
-    margin-right: 10vh;
-}
-
-#myButton:hover {
+.lower-part-child {
     background-color: black;
-    color: white;
-    font-weight: bolder;
-    transition: 0.5s ease;
+    height: 50%; 
+    width: auto; 
 }
 
-#message {
-    font-size: 50px;
-    color: white;
-}
-
-.container {
-    background-color: white;
-    height: 7vh;
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
+#button {
+    height: 3vh;
+    width: 50%;
     align-items: center;
+    background-color: white;
+    font-family: -apple-system, system-ui, system-ui, "Segoe UI", Roboto, "Helvetica Neue", "Fira Sans", Ubuntu, Oxygen, "Oxygen Sans", Cantarell, "Droid Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Lucida Grande", Helvetica, Arial, sans-serif;
+    font-size: 2vh;
+    font-weight: bold;
+    border-radius: 10%;
 }
 
-.image {
-    width: 3vh;
-    height: auto;
+#button:hover {
+    background-color: red;
+    transition: background-color 0.5s ease;
 }
 

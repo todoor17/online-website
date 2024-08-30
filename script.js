@@ -1,11 +1,22 @@
-function changeColorRandom() {
-    const randomInt = Math.floor(Math.random() * 16777216);
-    const randomColor = '#' + randomInt.toString(16).padStart(6, '0');
-    console.log(randomColor);
-    document.body.style.backgroundColor = randomColor;
+const ranks = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"];
+const suits = ["♣", "♦", "♥", "♠"];
+const deck = [];
+
+for(let i = 0; i < ranks.length; i++) {
+    for(let j = 0; j < suits.length; j++) {
+        deck.push(ranks[i] + suits[j]);
+    } 
 }
 
-function changeColorControlled() {
-    const colors = ["#ff80ed", "#065535", "#000000", "#ff0000", "#ffffff", "#0000ff", "#8a2be2", "#ccff00"];
-    document.body.style.backgroundColor = colors[Math.floor(Math.random() * 9)];
+console.log(deck);
+const random = Math.floor(Math.random() * 52);
+console.log(deck[random])
+
+function setRandomCard() {
+    const randomIndex = Math.floor(Math.random() * 52);
+    const randomCard = deck[randomIndex];
+    const cardImage = `deck/${randomCard}.png`;
+
+    document.querySelector(".lower-part-child").src = cardImage;
 }
+
