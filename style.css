@@ -33,6 +33,10 @@ body {
     font-size: large;
 }
 
-#computer-socre {
+#computer-score {
     font-size: larger;
+}
+
+* {
+    touch-action: manipulation;
 }
