@@ -7,12 +7,22 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <p class="text"> 0 </p>
-        <br> <br>
-        <button id="btn" onclick="press()"> Press! </button>
-        <br> <br>
-        <button id="btn" onclick="reset()"> Reset! </button>
-
+        <p id="computer-score"> 0 </p>
+        <div class ="container"> 
+            <img class="card" src="images/white.png">  
+            <img class="card" src="images/white.png"> 
+        </div>
+        <div class="container">
+            <button class="btn" onclick="start()"> Start </button>
+            <button class="btn" onclick="hit()"> Hit </button>
+            <button class="btn" onclick="stand()"> Stand </button>
+            <button class="btn" onclick="reset()"> Reset </button>
+        </div>
+        <div class ="container"> 
+            <img class="card" src="images/white.png"> 
+            <img class="card" src="images/white.png"> 
+        </div>
+        <p id="player-score"> 0 </p>
         <script src="script.js"></script>
     </body>
 </html>

@@ -1,31 +1,38 @@
 body {
-    background-color: black;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
+    padding: 0;
     overflow: hidden;
 }
 
-#btn {
-    width: 10vh;
-    height: 5vh;
-    font-size: 3vh;
+.container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
+    gap: 3vh;
 }
 
-.text {
-    color: white;
-    font-size: 3vh;
+.card {
+    height: auto;
+    width: 20vh;
+    background-color: white;
 }
 
-* {
-    touch-action: manipulation;
-    -webkit-appearance: none;
-    appearance: none;
+.btn {
+    margin: 5vh;
+    width: 7.5vh;
+    height: auto;
+}
+
+#player-score {
+    font-size: large;
+}
+
+#computer-socre {
+    font-size: larger;
 }
