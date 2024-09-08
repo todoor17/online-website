@@ -1,52 +1,25 @@
 body {
     background-color: black;
-    margin: 0;
-    padding: 0;
-}
-
-.lower-part {
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center; 
-    background-color: black;
-    height: 100vh;
-    width: 100%;
-}
-
-.lower-part-container {
-    display: flex;
-    flex-direction: column; 
-    align-items: center;
+    flex-direction: column;
     justify-content: center;
-    margin: 20px;
-    height: 70%;
-    width: 20%;
-    gap: 10vh; 
-}
-
-.lower-part-child {
-    background-color: black;
-    height: 50%; 
-    width: auto; 
-}
-
-#button {
-    display: flex; /* Enable flexbox layout */
-    align-items: center; /* Center content vertically */
-    justify-content: center; /* Center content horizontally */
-    height: 3vh;
-    width: 50%;
     align-items: center;
-    background-color: white;
-    font-family: -apple-system, system-ui, system-ui, "Segoe UI", Roboto, "Helvetica Neue", "Fira Sans", Ubuntu, Oxygen, "Oxygen Sans", Cantarell, "Droid Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Lucida Grande", Helvetica, Arial, sans-serif;
-    font-size: 2vh;
-    font-weight: bold;
-    border-radius: 10%;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
 }
 
-#button:hover {
-    background-color: red;
-    transition: background-color 0.5s ease;
+#btn {
+    width: 10vh;
+    height: 5vh;
+    font-size: 3vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
+.text {
+    color: white;
+    font-size: 3vh;
+}
