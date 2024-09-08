@@ -24,6 +24,8 @@ body {
     font-size: 3vh;
 }
 
-.disable-dbl-click-zoom {
+* {
     touch-action: manipulation;
+    -webkit-appearance: none;
+    appearance: none;
 }
