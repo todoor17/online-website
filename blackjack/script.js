@@ -126,7 +126,7 @@ function reset() {
     playerText.textContent = "0";
     playerText.style.color = "black";
     for (let i = 0; i < 4; i++) {
-        document.getElementsByClassName("card")[i].src = "images/white.png";
+        document.getElementsByClassName("card")[i].src = "../images/white.png";
     }
 }
 
@@ -152,9 +152,9 @@ function start() {
 
     playerText.style.color = "black";
     document.getElementsByClassName("card")[0].src = path;
-    document.getElementsByClassName("card")[1].src = "images/black.png";
+    document.getElementsByClassName("card")[1].src = "../images/black.png";
     document.getElementsByClassName("card")[2].src = path1;
-    document.getElementsByClassName("card")[3].src = "images/white.png";
+    document.getElementsByClassName("card")[3].src = "../images/white.png";
     console.log(computerScore);
 
 }
