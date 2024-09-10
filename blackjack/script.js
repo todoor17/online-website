@@ -166,7 +166,7 @@ function getRandomCard() {
         generateDeck();
     }
     let random = Math.floor(Math.random() * deck.length);
-    let randomPath = path = "deck/" + deck[random] + ".png";
+    let randomPath = "deck/" + deck[random] + ".png";
     return randomPath;
 }
 
