@@ -108,7 +108,7 @@ function youWon() {
 }
 
 function draw() {
-    balance += 20;
+    balance += 10;
     balanceText.textContent = balance;
     playerText.textContent = playerScore + "-" + computerScore + ", YOU DRAW";
     playerText.style.color = "black";
