@@ -36,7 +36,7 @@ function hit() {
     count++;
 
 
-    if (playerScore > 11 && (parseInt(getScore(card))) == 1) {
+    if (playerScore > 11 && (parseInt(getScore(card))) == 11) {
         playerScore += 1;
     } else {
         playerScore += parseInt(getScore(card));
@@ -57,7 +57,7 @@ function stand() {
         cardImages[count1 % 2].src = path;
 
         card = path[5];
-        if (computerScore > 11 && (parseInt(getScore(card))) == 1) {
+        if (computerScore > 11 && (parseInt(getScore(card))) == 11) {
             computerScore += 1;
         } else {
             computerScore += parseInt(getScore(card));
@@ -96,6 +96,7 @@ function getScore(card) {
 function youLost() {
     playerText.textContent = playerScore + "-" + computerScore + ", YOU LOST";
     playerText.style.color = "red";
+    document.body.style.backgroundColor = "red";
     disableButtons();
 }
 
@@ -104,6 +105,7 @@ function youWon() {
     balanceText.textContent = balance;
     playerText.textContent = playerScore + "-" + computerScore + ", YOU WON";
     playerText.style.color = "green";
+    document.body.style.backgroundColor = "green";
     disableButtons();
 }
 
