@@ -177,3 +177,4 @@ function enableButtons() {
     hitButton.disabled = false;
     standButton.disabled = false;
 }
+
