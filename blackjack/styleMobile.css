@@ -3,8 +3,8 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 640px;
-    width: 360px;
+    height: 100%;
+    width: 100%;
     margin: 0;
     padding: 0;
 }
