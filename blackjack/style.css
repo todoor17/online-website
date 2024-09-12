@@ -49,12 +49,6 @@ body {
     animation: blinker 1s linear infinite;
   }
   
-  @keyframes blinker {
-    50% {
-      opacity: 0;
-    }
-  }
-
   .balance {
     font-size: 30px;
     color: green;
