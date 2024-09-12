@@ -1,13 +1,12 @@
 body {
-    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 640px;
+    width: 360px;
     margin: 0;
     padding: 0;
-    overflow: hidden;
 }
 
 .container {
