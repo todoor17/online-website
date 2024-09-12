@@ -12,6 +12,9 @@ const computerText = document.getElementById("computer-score");
 const playerText = document.getElementById("player-score");
 const hitButton = document.getElementById("hitButton");
 const standButton = document.getElementById("standButton");
+const startButton = document.getElementById("startButton");
+const resetButton = document.getElementById("resetButton");
+
 const balanceText = document.getElementsByClassName("balance")[0];
 
 function generateDeck() {
@@ -182,16 +185,24 @@ function getRandomCard() {
 function disableButtons() {
     hitButton.style.opacity = "0";
     standButton.style.opacity = "0";
+    startButton.style.opacity = "100";
+    resetButton.style.opacity = "100";
     hitButton.disabled = true;
     standButton.disabled = true;
+    startButton.disabled = false;
+    resetButton.disabled = false;
     balanceText.style.display = "block";
 }
 
 function enableButtons() {
     hitButton.style.opacity = "100";
     standButton.style.opacity = "100";
+    startButton.style.opacity = "0";
+    resetButton.style.opacity = "0";
     hitButton.disabled = false;
     standButton.disabled = false;
+    startButton.disabled = true;
+    resetButton.disabled = true;
     balanceText.style.display = "none";
     
 }
