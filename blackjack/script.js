@@ -35,12 +35,8 @@ function hit() {
     card = path[5];
     count++;
 
+    playerScore = updateScore(playerScore, card);
 
-    if (playerScore > 11 && (parseInt(getScore(card))) == 11) {
-        playerScore += 1;
-    } else {
-        playerScore += parseInt(getScore(card));
-    }
     playerText.textContent = playerScore;
     console.log(playerScore);
 
@@ -57,11 +53,8 @@ function stand() {
         cardImages[count1 % 2].src = path;
 
         card = path[5];
-        if (computerScore > 11 && (parseInt(getScore(card))) == 11) {
-            computerScore += 1;
-        } else {
-            computerScore += parseInt(getScore(card));
-        }
+        computerScore = updateScore(computerScore, card);
+        
         computerText.textContent = computerScore;
         count1++;
         setTimeout(stand, 1000);
@@ -94,32 +87,46 @@ function getScore(card) {
 }
 
 function youLost() {
-    playerText.textContent = playerScore + "-" + computerScore + ", YOU LOST";
+    playerText.textContent = playerScore;
+    computerText.textContent = computerScore;
     playerText.style.color = "red";
-    document.body.style.backgroundColor = "red";
+    computerText.style.color = "green";
+    balanceText.textContent = "Balance " + balance + "$"; 
+    balanceText.style.color = "red";
+
     disableButtons();
+
 }
 
 function youWon() {
     balance += 20;
-    balanceText.textContent = balance;
-    playerText.textContent = playerScore + "-" + computerScore + ", YOU WON";
+    playerText.textContent = playerScore;
+    computerText.textContent = computerScore;
     playerText.style.color = "green";
-    document.body.style.backgroundColor = "green";
+    computerText.style.color = "red";
+    balanceText.textContent = "Balance " + balance + "$"; 
+    balanceText.style.color = "green";
+
     disableButtons();
 }
 
 function draw() {
     balance += 10;
-    balanceText.textContent = balance;
-    playerText.textContent = playerScore + "-" + computerScore + ", YOU DRAW";
-    playerText.style.color = "black";
-    playerText.style.stroke = "1px";
+    playerText.textContent = playerScore;
+    computerText.textContent = computerScore;
+    playerText.style.color = "#FF6600";
+    computerText.style.color = "#FF6600";
+    balanceText.textContent = "Balance " + balance + "$"; 
+    playerText.textContent = playerScore;
+    balanceText.style.color = "#FF6600";
+    
     disableButtons();
 }
 
 function reset() {
     disableButtons();
+    playerText.style.color = "black";
+    computerText.style.color = "black";
     playerScore = 0; 
     computerScore = 0;
     count = 0;
@@ -139,7 +146,9 @@ function start() {
     count = 1;
     count1 = 1;
     balance -= 10;
-    balanceText.textContent = balance;
+    balanceText.textContent = "Balance " + balance + "$";
+    playerText.style.color = "black";
+    computerText.style.color = "black";
     
 
     path = getRandomCard();
@@ -171,12 +180,32 @@ function getRandomCard() {
 }
 
 function disableButtons() {
+    hitButton.style.opacity = "0";
+    standButton.style.opacity = "0";
     hitButton.disabled = true;
     standButton.disabled = true;
+    balanceText.style.display = "block";
 }
 
 function enableButtons() {
+    hitButton.style.opacity = "100";
+    standButton.style.opacity = "100";
     hitButton.disabled = false;
     standButton.disabled = false;
+    balanceText.style.display = "none";
+    
 }
 
+function updateScore(score, card) {
+    const cardScore = parseInt(getScore(card));
+
+    if (score >= 11 && (cardScore == 11)) {
+        return score + 1;
+    } else {
+        return score + cardScore;
+    }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    disableButtons();
+})
