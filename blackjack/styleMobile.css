@@ -54,7 +54,3 @@ html, body {
     overflow-x: hidden; 
     overscroll-behavior: none; 
 }
-
-#deckSize {
-    position: absolute;
-}
