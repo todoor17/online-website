@@ -3,9 +3,10 @@ body {
     height: 100vh;
     margin: 0;
     padding: 0;
+    overflow: hidden;
 }
 
-.container {
+.header-container {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -29,7 +30,7 @@ body {
 }
 
 .text {
-    font-size: 5vw;
+    font-size: 3vw;
     text-decoration: none;
     color: white;
     justify-content: center;
@@ -84,4 +85,31 @@ body {
 
 .sidebar.show {
     opacity: 1;
+}
+
+.content-container {
+    margin-left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 93vh;
+}
+
+.content-container.shift {
+    margin-left: 25vh;
+}
+
+.stamp {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    font-size: 20px;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+}
+
+.stamp.date {
+    bottom: 40px;
+    right: 40px;
 }
