@@ -1,4 +1,5 @@
 const deck = [];
+let deckSize = 52;
 
 let path;
 let card;
@@ -14,8 +15,8 @@ const hitButton = document.getElementById("hitButton");
 const standButton = document.getElementById("standButton");
 const startButton = document.getElementById("startButton");
 const resetButton = document.getElementById("resetButton");
-
 const balanceText = document.getElementsByClassName("balance")[0];
+const deckSizeText = document.getElementById("deckSize");
 
 function generateDeck() {
     const suits = ["♠","♣","♥","♦"];
@@ -143,11 +144,16 @@ function reset() {
 }
 
 function start() {
+    if (deck.length < 10) {
+        deck.splice(0, deck.length);
+        generateDeck();
+    }
+
     enableButtons();
+
     playerScore = 0;
     computerScore = 0;
-    count = 1;
-    count1 = 1;
+    count = count1 = 1;
     balance -= 10;
     balanceText.textContent = "Balance " + balance + "$";
     playerText.style.color = "black";
@@ -169,16 +175,14 @@ function start() {
     document.getElementsByClassName("card")[1].src = "../images/black.png";
     document.getElementsByClassName("card")[2].src = path1;
     document.getElementsByClassName("card")[3].src = "../images/white.png";
-    console.log(computerScore);
-
 }
 
 function getRandomCard() {
-    if (deck.length == 0) {
-        generateDeck();
-    }
     let random = Math.floor(Math.random() * deck.length);
     let randomPath = "deck/" + deck[random] + ".png";
+    console.log("Random index is:" + random);
+    deck.splice(random, 1);
+    console.log(deck);
     return randomPath;
 }
 
@@ -217,6 +221,12 @@ function updateScore(score, card) {
     }
 }
 
+function checkBlackjack() {
+    
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     disableButtons();
+    generateDeck();
 })
+
