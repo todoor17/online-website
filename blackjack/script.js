@@ -1,12 +1,9 @@
 const deck = [];
 
-let path;
-let card;
+let path, card, count, count1;
 let playerScore = 0;
 let computerScore = 0;
 let balance = 100;
-let count;
-let count1;
 
 const computerText = document.getElementById("computer-score");
 const playerText = document.getElementById("player-score");
@@ -18,7 +15,7 @@ const balanceText = document.getElementsByClassName("balance")[0];
 const deckSizeText = document.getElementById("deckSize");
 
 document.addEventListener('DOMContentLoaded', function() {
-    disablePlayButtons();
+    disableButtons();
     generateDeck();
 })
 
@@ -35,7 +32,7 @@ function generateDeck() {
 function getRandomCard() {
     let random = Math.floor(Math.random() * deck.length);
     let randomPath = "deck/" + deck[random] + ".png";
-    deck.splice(random, 1); //card is removed after being drawn
+    deck.splice(random, 1);
     return randomPath;
 }
 
@@ -55,7 +52,7 @@ function getScore(card) {
     }
 }
 
-function updateScore(score, card) { //special case when Ace value is 1
+function updateScore(score, card) {
     const cardScore = parseInt(getScore(card));
 
     if (score >= 11 && (cardScore == 11)) {
@@ -65,28 +62,28 @@ function updateScore(score, card) { //special case when Ace value is 1
     }
 }
 
-
 function start() {
-    if (deck.length < 10) {
-        deck.splice(0, deck.length);
+    console.log(deck.length);
+    if (deck.length < 10) { //deck is re-shuffled when size is lower than 10
+        deck.splice(0, deck.length); //drawn card is removed from the deck
         generateDeck();
     }
 
-    enablePlayButtons();
+    enableButtons();
+
+    playerScore = computerScore = 0;
+    count = count1 = 1;
     balance -= 10;
 
-    playerScore = 0;
-    computerScore = 0;
-    count = count1 = 1;
     balanceText.textContent = "Balance " + balance + "$";
     playerText.style.color = "black";
     computerText.style.color = "black";
     
-
     path = getRandomCard();
     const path1 = getRandomCard();
     const card = path[5];
     const card1 = path1[5];
+
     computerScore = parseInt(getScore(card));
     playerScore = parseInt(getScore(card1))
      
@@ -107,10 +104,11 @@ function hit() {
     cardImages[(count % 2) + 2].src = path;
 
     card = path[5];
-    count++;
+    count++; 
 
     playerScore = updateScore(playerScore, card);
     playerText.textContent = playerScore;
+
     if (playerScore > 21) {
         youLost();
         return;
@@ -143,13 +141,21 @@ function stand() {
 
 function reset() {
     disableButtons();
+    deck.splice(0, deck.length);
+    generateDeck();
+
     playerText.style.color = "black";
     computerText.style.color = "black";
-    playerScore = 0; 
-    computerScore = 0;
+    balanceText.style.color = "black";
+
+    balance = 100;
+    playerScore = computerScore = 0;
+    count = 0, count1 = 1;
+
     computerText.textContent = "0";
     playerText.textContent = "0";
-    playerText.style.color = "black";
+    balanceText.textContent = "Balance 100($)";
+
     for (let i = 0; i < 4; i++) {
         document.getElementsByClassName("card")[i].src = "../images/white.png";
     }
@@ -164,7 +170,6 @@ function youLost() {
     balanceText.style.color = "red";
 
     disableButtons();
-
 }
 
 function youWon() {
@@ -192,7 +197,7 @@ function draw() {
     disableButtons();
 }
 
-function disablePlayButtons() {
+function disableButtons() {
     hitButton.style.opacity = "0";
     standButton.style.opacity = "0";
     startButton.style.opacity = "100";
@@ -204,7 +209,7 @@ function disablePlayButtons() {
     balanceText.style.display = "block";
 }
 
-function enablePlayButtons() {
+function enableButtons() {
     hitButton.style.opacity = "100";
     standButton.style.opacity = "100";
     startButton.style.opacity = "0";
@@ -213,5 +218,5 @@ function enablePlayButtons() {
     standButton.disabled = false;
     startButton.disabled = true;
     resetButton.disabled = true;
-    balanceText.style.display = "none";
+    balanceText.style.display = "none";    
 }
