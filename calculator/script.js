@@ -1,8 +1,8 @@
 let input = document.getElementById("input");
 let operation = 0; // 1 dor addition, 2 for subtraction, 3 for multiplication, 4 for division
 let overwritingFlag = 0;
-let equalPressed = 0, additionPressed = 0, subtractionPressed = 0;
-let multiplicationPressed = 0, divisionPressed = 0;
+let equalPressed = 0, additionPressed = 0, subtractionPressed = 0, multiplicationPressed = 0;
+let divisionPressed = 0, invertPressed = 0, percentPressed = 0;
 let pastInputs = [], pastResults = [];
 
 const plus = document.getElementById("plus");
@@ -52,8 +52,11 @@ function addition() {
 
     if (equalPressed || subtractionPressed || multiplicationPressed || divisionPressed) {
         input.value = parseFloat(pastResults[pastResults.length - 1]);
+    } else if (invertPressed || percentPressed) {
+        console.log("eee");
+        pastResults.push(input.value);
+        pastInputs.push(input.value);
     } else {
-        console.log("HEREEEEE");
         if (pastInputs.length == 1) {
             result = parseFloat(pastInputs[0]);
         } else {
@@ -63,13 +66,7 @@ function addition() {
         pastResults.push(result);
     }
 
-    equalPressed = subtractionPressed = multiplicationPressed = divisionPressed = 0;
-    additionPressed = 1;
-}
-
-function subtraction() {
-    setButt
-    equalPressed = subtractionPressed = multiplicationPressed = divisionPressed = 0;
+    equalPressed = subtractionPressed = multiplicationPressed = divisionPressed = invertPressed = percentPressed = 0;
     additionPressed = 1;
 }
 
@@ -84,8 +81,10 @@ function subtraction() {
 
     if (equalPressed || additionPressed || multiplicationPressed || divisionPressed) {
         input.value = parseFloat(pastResults[pastResults.length - 1]);
-    } else {
-        console.log("HEREEEEE");
+    } else if (invertPressed || percentPressed) {
+        pastResults.push(input.value);
+        pastInputs.push(input.value);
+    } else { 
         if (pastInputs.length == 1) {
             result = parseFloat(pastInputs[0]);
         } else {
@@ -95,7 +94,7 @@ function subtraction() {
         pastResults.push(result);
     }
 
-    equalPressed = additionPressed = multiplicationPressed = divisionPressed = 0;
+    equalPressed = additionPressed = multiplicationPressed = divisionPressed = invertPressed = percentPressed = 0;
     subtractionPressed = 1;
 }
 
@@ -110,8 +109,10 @@ function multiplicationFunc() {
 
     if (equalPressed || additionPressed || subtractionPressed || divisionPressed) {
         input.value = parseFloat(pastResults[pastResults.length - 1]);
+    } else if (invertPressed || percentPressed) {
+        pastResults.push(input.value);
+        pastInputs.push(input.value);
     } else {
-        console.log("HEREEEEE");
         if (pastInputs.length == 1) {
             result = parseFloat(pastInputs[0]);
         } else {
@@ -121,7 +122,7 @@ function multiplicationFunc() {
         pastResults.push(result);
     }
 
-    equalPressed = additionPressed = subtractionPressed = divisionPressed = 0;
+    equalPressed = additionPressed = subtractionPressed = divisionPressed = invertPressed = percentPressed = 0;
     multiplicationPressed = 1;
 }
 
@@ -136,17 +137,24 @@ function divisionFunc() {
 
     if (equalPressed || additionPressed || subtractionPressed || multiplicationPressed) {
         input.value = parseFloat(pastResults[pastResults.length - 1]);
+    } else if (invertPressed || percentPressed) {
+        pastResults.push(input.value);
+        pastInputs.push(input.value);
     } else {
         if (pastInputs.length == 1) {
             result = parseFloat(pastInputs[0]);
         } else {
-            result = parseFloat(pastResults[pastResults.length - 1]) / parseFloat(pastInputs[pastInputs.length - 1]);
+            if (pastInputs[pastInputs.length - 1] == 0) {
+                result = "Error.";
+            } else {
+                result = parseFloat(pastResults[pastResults.length - 1]) / parseFloat(pastInputs[pastInputs.length - 1]);
+            }
         }
         input.value = result;
         pastResults.push(result);
     }
 
-    equalPressed = additionPressed = subtractionPressed = multiplicationPressed = 0;
+    equalPressed = additionPressed = subtractionPressed = multiplicationPressed = invertPressed = percentPressed = 0;
     divisionPressed = 1;
 }
 
@@ -197,10 +205,14 @@ function getResult() {
             equalPressed = 1;
             pastInputs.push(input.value);
 
-            if (pastResults.length == 0) {
-                result = parseFloat(pastInputs[pastInputs.length - 1]) / parseFloat(inputValue);
+            if (input.value == 0) {
+                result = "Error.";
             } else {
-                result = parseFloat(pastResults[pastResults.length - 1]) / parseFloat(inputValue);
+                if (pastResults.length == 0) {
+                    result = parseFloat(pastInputs[pastInputs.length - 1]) / parseFloat(inputValue);
+                } else {
+                    result = parseFloat(pastResults[pastResults.length - 1]) / parseFloat(inputValue);
+                }
             }
             input.value = result;
             pastResults.push(result);
@@ -214,7 +226,9 @@ function getResult() {
 function doOperation(operator) {
     switch (operator) {
         case "C":
-            equalPressed = 0;
+            setButtonsStyle("C");
+            additionPressed = subtractionPressed = multiplicationPressed = 0;
+            divisionPressed  = equalPressed = invertPressed = percentPressed = 0;
             input.value = "0";
             pastInputs = [];
             pastResults = [];
@@ -229,6 +243,11 @@ function doOperation(operator) {
                 }
                 input.value = newValue;
             }
+
+            overwritingFlag = 1;
+            invertPressed = 1;
+            equalPressed = additionPressed = subtractionPressed = multiplicationPressed = divisionPressed = percentPressed = 0;
+
             break;
         case "%":
             if (input.value != "0") {
@@ -236,6 +255,11 @@ function doOperation(operator) {
                 newInputValue = parseFloat(input.value) / 100;
                 input.value = newInputValue;
             }
+
+            overwritingFlag = 1;
+            percentPressed = 1;
+            equalPressed = additionPressed = subtractionPressed = multiplicationPressed = divisionPressed = inzzz = 0;
+
             break;
         case "+":
             addition();

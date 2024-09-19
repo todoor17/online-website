@@ -11,9 +11,9 @@ body {
 .calculator-body {
     position: relative;
     background-color: black;
-    width: 500px;
-    height: 750px;
-    border-radius: 5%;
+    width: 300px;
+    height: 500px;
+    border-radius: 20px;
     overflow: hidden;
 }
 
@@ -23,17 +23,18 @@ body {
     border: none;
     outline: none; 
     width: 100%;
-    height: 185px;
+    height: 120px;
     text-align: right;
     font-family: 'Helvetica', sans-serif;
-    font-size: 70px;
+    font-size: 45px;
     font-weight: bold;
-    padding-right: 48px;
+    padding-right: 33px;
     caret-color: transparent;
     box-sizing: border-box; 
 }
 
 .buttons-body {
+    margin-top: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -46,16 +47,16 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    gap: 20px;
+    gap: 10px;
 }
 
 .button {
     background-color: #fe9505;
     color: white;
-    font-size: 50px;
+    font-size: 30px;
     font-weight: bold;
-    width: 100px;
-    height: 100px;
+    width: 60px;
+    height: 60px;
     border: none;
     outline: none; 
     border-radius: 50%;
@@ -69,12 +70,12 @@ body {
 }
 
 .button.button0 {
-    width: 220px;
+    width: 130px;
     border-radius: 25px;
     background-color: #333333;
     color: white;
     text-align: left;
-    padding-left: 35px;
+    padding-left: 23px;
     box-sizing: border-box;
 }
 
