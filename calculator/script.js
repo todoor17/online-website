@@ -10,9 +10,10 @@ const minus = document.getElementById("minus");
 const multiplication = document.getElementById("multiplication");
 const division = document.getElementById("division");
 const equal = document.getElementById("equal");
+const clear = document.getElementById("clear");
 
 function addNumber(character) {
-    if (overwritingFlag) {
+    if (overwritingFlag && !invertPressed && !percentPressed) {
         input.value = character;
         overwritingFlag = 0;
     } else {
@@ -51,7 +52,7 @@ function addition() {
     let result;
 
     if (equalPressed || subtractionPressed || multiplicationPressed || divisionPressed) {
-        input.value = parseFloat(pastResults[pastResults.length - 1]);
+        pastResults.push(input.value);
     } else if (invertPressed || percentPressed) {
         console.log("eee");
         pastResults.push(input.value);
@@ -80,7 +81,7 @@ function subtraction() {
     let result;
 
     if (equalPressed || additionPressed || multiplicationPressed || divisionPressed) {
-        input.value = parseFloat(pastResults[pastResults.length - 1]);
+        pastResults.push(input.value);
     } else if (invertPressed || percentPressed) {
         pastResults.push(input.value);
         pastInputs.push(input.value);
@@ -108,7 +109,7 @@ function multiplicationFunc() {
     let result;
 
     if (equalPressed || additionPressed || subtractionPressed || divisionPressed) {
-        input.value = parseFloat(pastResults[pastResults.length - 1]);
+        pastResults.push(input.value);
     } else if (invertPressed || percentPressed) {
         pastResults.push(input.value);
         pastInputs.push(input.value);
@@ -136,7 +137,7 @@ function divisionFunc() {
     let result;
 
     if (equalPressed || additionPressed || subtractionPressed || multiplicationPressed) {
-        input.value = parseFloat(pastResults[pastResults.length - 1]);
+        pastResults.push(input.value);
     } else if (invertPressed || percentPressed) {
         pastResults.push(input.value);
         pastInputs.push(input.value);
@@ -144,8 +145,9 @@ function divisionFunc() {
         if (pastInputs.length == 1) {
             result = parseFloat(pastInputs[0]);
         } else {
-            if (pastInputs[pastInputs.length - 1] == 0) {
+            if (pastInputs[pastInputs.length - 1] == 0 && pastInputs.length > 1) {
                 result = "Error.";
+                setButtonsStyle("C");
             } else {
                 result = parseFloat(pastResults[pastResults.length - 1]) / parseFloat(pastInputs[pastInputs.length - 1]);
             }
@@ -207,6 +209,7 @@ function getResult() {
 
             if (input.value == 0) {
                 result = "Error.";
+                setButtonsStyle("C");
             } else {
                 if (pastResults.length == 0) {
                     result = parseFloat(pastInputs[pastInputs.length - 1]) / parseFloat(inputValue);
@@ -227,6 +230,7 @@ function doOperation(operator) {
     switch (operator) {
         case "C":
             setButtonsStyle("C");
+            activateButton(clear, 0);
             additionPressed = subtractionPressed = multiplicationPressed = 0;
             divisionPressed  = equalPressed = invertPressed = percentPressed = 0;
             input.value = "0";
@@ -289,6 +293,9 @@ function activateButton(button, isActive) {
     if (isActive) {
         button.style.backgroundColor = "white";
         button.style.color = "#fe9505";
+    } else if (!isActive && button == clear) {
+        button.style.backgroundColor = "#a5a5a5";
+        button.style.color = "black";
     } else {
         button.style.backgroundColor = "#fe9505";
         button.style.color = "white";
@@ -296,9 +303,17 @@ function activateButton(button, isActive) {
 }
 
 function setButtonsStyle(operation) {
+    activateButton(clear, operation === "C");
     activateButton(plus, operation === "+");
     activateButton(minus, operation === "-");
     activateButton(multiplication, operation === "x");
     activateButton(division, operation === "/");
     activateButton(equal, operation === "=");
 }
+
+// function scaleText() {
+//     const inputLength = input.value.length;
+//     let size = 90 - 2.5 * inputLength;
+//     input.style.fontSize = `${size}px`
+//     console.log();
+// }

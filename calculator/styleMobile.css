@@ -51,6 +51,9 @@ body {
 }
 
 .button {
+    -webkit-appearance: none;
+    appearance: none;
+    padding: 0;
     background-color: #fe9505;
     color: white;
     font-size: 30px;
