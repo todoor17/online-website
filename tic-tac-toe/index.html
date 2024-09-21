@@ -3,12 +3,15 @@
 <html lang="en">
     <head>
         <meta chraset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title> Tic-Tac-Toe </title>
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" media="screen and (min-width: 420px)" href="style.css">
+        <link rel="stylesheet" media="screen and (max-width: 419px)" href="styleMobile.css">
     </head>
 
     <body>
         <div class="matrix-container">
+            <div class="win-horizontal-1"> </div>
             <div class="row">
                 <div class="cell" id="one">
                     <div class="bar1"> </div>
@@ -26,6 +29,7 @@
                     <div class="bar2"> </div> 
                 </div>
             </div>
+            <div class="win-horizontal-2"> </div>
             <div class="row">
                 <div class="cell" id="four">
                     <div class="bar1"> </div>
@@ -43,6 +47,7 @@
                     <div class="bar2"> </div> 
                 </div>
             </div>
+            <div class="win-horizontal-3"> </div>
             <div class="row">
                 <div class="cell" id="seven">
                     <div class="bar1"> </div>

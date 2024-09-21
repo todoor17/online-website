@@ -14,12 +14,12 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 690px;
-    width: 690px;
+    height: 281px;
+    width: 281px;
     background-color: black;   
     position: relative;
-    gap: 6px;
-    border: 6px solid black;
+    gap: 4px;
+    border: 4px solid black;
 }
 
 .row {
@@ -29,10 +29,10 @@ body {
     justify-content: center;
     position: relative;
     width: 100%;
-    height: 226px;
+    height: 91px;
     background-color: black;
     box-sizing: border-box;
-    gap: 6px;
+    gap: 4px;
 }
 
 .cell {
@@ -41,15 +41,15 @@ body {
     justify-content: center;
     align-items: center;
     background-color: white;
-    width: 226px;
+    width: 91px;
     height: 100%;
     gap: 20px;
 }
 
 .bar1, .bar2 {
     position: absolute;
-    height: 20px;
-    width: 200px;
+    height: 8px;
+    width: 90px;
     background-color: #dd2317;
     opacity: 0;
     transition: opacity 0.5s ease-out; 
@@ -66,11 +66,11 @@ body {
 
 .circle {
     opacity: 0;
-    width: 135px;
-    height: 135px;
+    width: 60px;
+    height: 60px;
     background-color: white;
     border-radius: 50%;
-    border: 18px solid #0d2a52;
+    border: 8px solid #0d2a52;
     /* transition: opacity 0.5s ease-out;  */
 }
 
@@ -88,20 +88,20 @@ body {
 
 .win-horizontal-1, .win-horizontal-2, .win-horizontal-3 {
     position: absolute;
-    height: 20px;
-    width: 650px;
+    height: 8px;
+    width: 270px;
 }
 
 .win-horizontal-1 {
-    top: 113px;
+    top: 42px;
 }
 
 .win-horizontal-2 {
-    top: 339px;
+    top: 137px;
 }
 
 .win-horizontal-3 {
-    top: 564px;
+    top: 232px;
 }
 
 .win-horizontal-1.show, .win-horizontal-2.show, .win-horizontal-3.show {
@@ -110,18 +110,18 @@ body {
 
 .win-horizontal-2.diagonal1 {
     z-index: 1;
-    width: 820px;
+    width: 380px;
     transform: rotate(45deg);
 }
 
 .win-horizontal-2.diagonal2 {
     z-index: 1;
-    width: 820px;
+    width: 380px;
     transform: rotate(-45deg);
 }
 
 .win-horizontal-1.vertical1 {
-    transform: translate(-226px, 226px) rotate(90deg);
+    transform: translate(-95px, 94px) rotate(90deg);
     z-index: 1;
 }
 
@@ -131,7 +131,7 @@ body {
 }
 
 .win-horizontal-3.vertical3 {
-    transform: translate(226px, -226px) rotate(90deg);
+    transform: translate(95px, -96px) rotate(90deg);
     z-index: 1;
 }
 
