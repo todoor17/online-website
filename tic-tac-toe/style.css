@@ -34,13 +34,51 @@ body {
 
 .cell {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: white;
     width: 226px;
     height: 100%;
+    gap: 20px;
 }
 
-.element {
+.bar1, .bar2 {
+    position: absolute;
+    height: 20px;
+    width: 200px;
+    background-color: #dd2317;
+    opacity: 0;
+    transition: opacity 0.5s ease-out; 
+}
 
+.bar1 {
+    transform: translate(0px, 0px) rotate(45deg);
+}
+
+.bar2 {
+    transform: translate(0px, 0px) rotate(-45deg);
+}
+
+
+.circle {
+    opacity: 0;
+    width: 135px;
+    height: 135px;
+    background-color: white;
+    border-radius: 50%;
+    border: 18px solid #0d2a52;
+    /* transition: opacity 0.5s ease-out;  */
+}
+
+.bar1.show {
+    opacity: 1;
+}
+
+.bar2.show {
+    opacity: 1;
+}
+
+.circle.show {
+    opacity: 1;
 }
