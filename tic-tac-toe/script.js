@@ -1,22 +1,28 @@
 let table = ["u", "u", "u", "u", "u", "u", "u", "u", "u"];
+let winningPosition = 0, winningCharacter = "";
 let count = 0;
 
 const numbers = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine"];
 
-function setSymbol(cell, symbol) {
-    const bar1 = cell.querySelector(".bar1");
-    const bar2 = cell.querySelector(".bar2");
-    const circle = cell.querySelector(".circle");
+const bar1 = document.querySelector(".win-horizontal-1");
+const bar2 = document.querySelector(".win-horizontal-2");
+const bar3 = document.querySelector(".win-horizontal-3");
+const reset = document.querySelector(".btn");
 
+
+function setSymbol(cell, symbol) {
+    const xBar1 = cell.querySelector(".bar1");
+    const xBar2 = cell.querySelector(".bar2");
+    const circle = cell.querySelector(".circle");
     switch (symbol) {
         case "X":
-            bar1.style.opacity = "1";
-            bar2.style.opacity = "1";
+            xBar1.style.opacity = "1";
+            xBar2.style.opacity = "1";
             circle.style.opacity = "0";
             break;
         case "0":
-            bar1.style.opacity = "0";
-            bar2.style.opacity = "0";
+            xBar2.style.opacity = "0";
+            xBar2.style.opacity = "0";
             circle.style.opacity = "1";
             break;
         default:
@@ -43,6 +49,7 @@ cells.forEach(cell => {
                     count++;
                 }
                 checkWin();
+                checkDraw();
                 break;
             case "two":
                 if (table[index] == "u") {
@@ -56,6 +63,7 @@ cells.forEach(cell => {
                     count++;
                 }
                 checkWin();
+                checkDraw();
                 break;
             case "three":
                 if (table[index] == "u") {
@@ -69,6 +77,7 @@ cells.forEach(cell => {
                     count++;
                 }
                 checkWin();
+                checkDraw();
                 break;
             case "four":
                 if (table[index] == "u") {
@@ -82,6 +91,7 @@ cells.forEach(cell => {
                     count++;
                 }
                 checkWin();
+                checkDraw();
                 break;
             case "five":
                 if (table[index] == "u") {
@@ -95,6 +105,7 @@ cells.forEach(cell => {
                     count++;
                 }
                 checkWin();
+                checkDraw();
                 break;
             case "six":
                 if (table[index] == "u") {
@@ -108,6 +119,7 @@ cells.forEach(cell => {
                     count++;
                 }
                 checkWin();
+                checkDraw();
                 break;
             case "seven":
                 if (table[index] == "u") {
@@ -121,6 +133,7 @@ cells.forEach(cell => {
                     count++;
                 }
                 checkWin();
+                checkDraw();
                 break;
             case "eight":
                 if (table[index] == "u") {
@@ -134,6 +147,7 @@ cells.forEach(cell => {
                     count++;
                 }
                 checkWin();
+                checkDraw();
                 break;
             case "nine":
                 if (table[index] == "u") {
@@ -147,6 +161,7 @@ cells.forEach(cell => {
                     count++;
                 }
                 checkWin();
+                checkDraw();
                 break;
             case "default":
                 break;
@@ -168,10 +183,11 @@ const winningCombinations = [["0", "1", "2"], ["3", "4", "5"], ["6", "7", "8"], 
 function checkWinningPlayer(player) {
     for (let i = 0; i < winningCombinations.length; i++) {
         if (table[winningCombinations[i][0]] == player && table[winningCombinations[i][1]] == player && table[winningCombinations[i][2]] == player) {
-            console.log(player + " won!");
-            setWinningBar(i + 1, player);
+            reset.style.opacity = "1";
+            winningPosition = i + 1;
+            winningCharacter = player;
+            setWinningBar(winningPosition, player);
             noClick();
-            console.log(winningCombinations.length)
             return 1;
         }
     } 
@@ -184,57 +200,64 @@ function checkWin() {
     }
 }
 
+function checkDraw() {
+    let isDraw = true;
+    for (let i = 0; i < table.length; i++) {
+        if (table[i] == "u") {
+            isDraw = false;
+            break;
+        }
+    }
+    if (isDraw) {
+        reset.style.opacity = "1"
+    }
+    return isDraw;
+}
+
 function noClick() {
     cells.forEach(cell => {
         cell.style.pointerEvents = "none";
     });
 }
 
-const bar1 = document.querySelector(".win-horizontal-1");
-const bar2 = document.querySelector(".win-horizontal-2");
-const bar3 = document.querySelector(".win-horizontal-3");
+const toggle = ["dummy", "show", "show", "show", "vertical1", "vertical2", "vertical3", "diagonal1", "diagonal2"];
+const  winningBars = ["dummy", bar1, bar2, bar3, bar1, bar2, bar3, bar2, bar2];
 
 function setWinningBar(winningPosition, character) {
-    switch (winningPosition) {
-        case 1:
-            setWinningBarColor(bar1, character);
-            bar1.classList.toggle("show");
-            break;
-        case 2:
-            setWinningBarColor(bar2, character);
-            bar2.classList.toggle("show");
-            break;
-        case 3:
-            setWinningBarColor(bar3, character);
-            bar3.classList.toggle("show");
-            break;
-        case 4:
-            setWinningBarColor(bar1, character);
-            bar1.classList.toggle("vertical1");
-            break;
-        case 5:
-            setWinningBarColor(bar2, character);
-            bar2.classList.toggle("vertical2");
-            break;
-        case 6:
-            setWinningBarColor(bar3, character);
-            bar3.classList.toggle("vertical3");
-            break;
-        case 7:
-            setWinningBarColor(bar2, character);
-            bar2.classList.toggle("diagonal1");
-            break;
-        case 8:
-            setWinningBarColor(bar2, character);
-            bar2.classList.toggle("diagonal2");
-            break;
+    if (!checkDraw()) {
+        setWinningBarColor(winningBars[winningPosition], character);
+        winningBars[winningPosition].classList.toggle(toggle[winningPosition]);
     }
 }
 
 function setWinningBarColor(winningBar, character) {
     if (character == "X") {
-        winningBar.style.backgroundColor = document.body.style.backgroundColor = "#dd2317";
+        winningBar.style.backgroundColor = "#dd2317";
+        winningBar.style.opacity = "1";
     } else {
-        winningBar.style.backgroundColor = document.body.style.backgroundColor = "#0d2a52";
+        winningBar.style.backgroundColor = "#0d2a52";
+        winningBar.style.opacity = "1";
     }
 }
+
+reset.addEventListener("click", function() {
+    table = ["u", "u", "u", "u", "u", "u", "u", "u", "u"];
+    count = 0;
+    reset.style.opacity = "0";
+    for (cell of cells) {
+        const xBar1 = cell.querySelector(".bar1");
+        const xBar2 = cell.querySelector(".bar2");
+        const circle = cell.querySelector(".circle");
+        xBar1.style.opacity = "0";
+        xBar2.style.opacity = "0";
+        circle.style.opacity = "0";
+        cell.style.pointerEvents = "auto";
+    }
+    
+    if (winningPosition != 0) {
+        setWinningBar(winningPosition, winningCharacter);
+    }
+    winningPosition = 0;
+    winningCharacter = "";
+    document.body.style.setProperty("background-color", "white", "important");
+});

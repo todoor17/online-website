@@ -1,10 +1,11 @@
 body {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     margin: 0;
     padding: 0;
-    height: 100vh;
+    height: 100%;
     overflow: hidden;
 }
 
@@ -20,6 +21,24 @@ body {
     position: relative;
     gap: 4px;
     border: 4px solid black;
+}
+
+.button-container {
+    height: calc((100vh - 281px) / 2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn {
+    background-color: black;
+    color: white;
+    height: 20px;
+    width: 80px;
+    outline: none;
+    font-weight: bolder;
+    opacity: 0;
+    font-size: 10px;
 }
 
 .row {
@@ -52,7 +71,6 @@ body {
     width: 90px;
     background-color: #dd2317;
     opacity: 0;
-    transition: opacity 0.5s ease-out; 
 }
 
 .bar1 {
@@ -63,7 +81,6 @@ body {
     transform: translate(0px, 0px) rotate(-45deg);
 }
 
-
 .circle {
     opacity: 0;
     width: 60px;
@@ -71,7 +88,6 @@ body {
     background-color: white;
     border-radius: 50%;
     border: 8px solid #0d2a52;
-    /* transition: opacity 0.5s ease-out;  */
 }
 
 .bar1.show {
@@ -105,37 +121,46 @@ body {
 }
 
 .win-horizontal-1.show, .win-horizontal-2.show, .win-horizontal-3.show {
-    z-index: 1;
+    z-index: 2;
 }
 
 .win-horizontal-2.diagonal1 {
-    z-index: 1;
+    z-index: 2;
     width: 380px;
     transform: rotate(45deg);
 }
 
 .win-horizontal-2.diagonal2 {
-    z-index: 1;
+    z-index: 2;
     width: 380px;
     transform: rotate(-45deg);
 }
 
 .win-horizontal-1.vertical1 {
     transform: translate(-95px, 94px) rotate(90deg);
-    z-index: 1;
+    z-index: 2;
 }
 
 .win-horizontal-2.vertical2 {
     transform: translate(0px, 0px) rotate(90deg);
-    z-index: 1;
+    z-index: 2;
 }
 
 .win-horizontal-3.vertical3 {
     transform: translate(95px, -96px) rotate(90deg);
-    z-index: 1;
+    z-index: 2;
 }
 
 * {
+    -webkit-animation: none;
+    animation: none;
     touch-action: manipulation;
+}
+
+html, body {
+    height: 100%;
+    max-height: 100vh; 
+    overflow-x: hidden; 
+    overscroll-behavior: none; 
 }
 

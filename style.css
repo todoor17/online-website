@@ -22,7 +22,7 @@ body {
 }
 
 .text {
-    font-size: 20px;
+    font-size: 30px;
     text-decoration: none;
     color: white;
     justify-content: center;
@@ -102,11 +102,13 @@ body {
     width: 25vw;
     height: 93vh;
     background-color: #F9BE08;
-    transition: 0.3s ease;
+    pointer-events: none;
+    overflow: hidden;
 }
 
 .sidebar.show {
     opacity: 1;
+    pointer-events: auto;
 }
 
 ul {
@@ -124,6 +126,7 @@ li {
     align-items: center; 
     font-weight: bolder;
     height: calc(93vh / 8);
+    font-size: 20px;
 }
 
 li:hover {
