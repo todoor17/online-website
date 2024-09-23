@@ -8,12 +8,7 @@ body {
     height: 100%;
     overflow: hidden;
 }
-.button-container {
-    height: calc((100vh - 690px) / 2);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+
 .matrix-container {
     position: relative;
     display: flex;
@@ -118,7 +113,7 @@ body {
 }
 
 .win-horizontal-2 {
-    top: 335px;
+    top: 334px;
 }
 
 .win-horizontal-3 {
