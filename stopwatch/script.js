@@ -9,9 +9,10 @@ const seconds1 = document.getElementById("seconds1");
 const minutes0 = document.getElementById("minutes0");
 const minutes1 = document.getElementById("minutes1");
 
-const text = [miliseconds0, miliseconds1, miliseconds2, seconds0, seconds1, minutes0, minutes1];
+const startBtn = document.getElementsByClassName("btn start")[0];
+const stopBtn = document.getElementsByClassName("btn stop")[0];
 
-const button = document.getElementsByClassName("btn btn2")[0];
+const text = [miliseconds0, miliseconds1, miliseconds2, seconds0, seconds1, minutes0, minutes1];
 
 function startStopwatch() {
     if (start == 0) {
@@ -20,6 +21,7 @@ function startStopwatch() {
         setTimeout(startStopwatch, 1);
     } else {
         currentTime = Date.now();
+
         miliSeconds = currentTime - startTime;
         miliseconds0.textContent = miliSeconds % 10;
         miliseconds1.textContent = parseInt(miliSeconds % 100 / 10);
@@ -33,22 +35,22 @@ function startStopwatch() {
         minutes0.textContent = minutes % 10;
         minutes1.textContent = parseInt(minutes / 60) % 10;
 
-        if (reset == 1) {
-            reset = 0;
+        if (stop == 1) {
             start = 0;
+            stop = 0;
             return;
         }
         setTimeout(startStopwatch, 1);
     }
 }
 
-button.addEventListener("click", function() {
-    reset = 1;
+stopBtn.addEventListener("click", function() {
+    startBtn.disabled = false;
+    stopBtn.disabled = true;
+    stop = 1;
 });
 
-function resetStopwatch() {
-    text.forEach(element => {
-        element.textContent = "0";
-    });
-    start = 0;
-}
+startBtn.addEventListener("click", function() {
+    startBtn.disabled = true;
+    stopBtn.disabled = false;
+});

@@ -3,26 +3,26 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title> Stopwatch </title>
         <link rel="stylesheet" media="screen and (min-width: 400px)" href="style.css"> 
         <link rel="stylesheet" media="screen and (max-width: 400px)" href="styleMobile.css"> 
     </head>
     <body>
-        <div class="container text-container"> 
-            <p id="minutes1"> 0 </p>
-            <p id="minutes0"> 0 </p>
+        <div class="container"> 
+            <p id="minutes1"> m </p>
+            <p id="minutes0"> m </p>
             <p> : </p>
-            <p id="seconds1"> 0 </p>
-            <p id="seconds0"> 0 </p>
+            <p id="seconds1"> s </p>
+            <p id="seconds0"> s </p>
             <p> : </p>
-            <p id="miliseconds2"> 0 </p>
-            <p id="miliseconds1"> 0 </p>
-            <p id="miliseconds0"> 0 </p>
+            <p id="miliseconds2"> m </p>
+            <p id="miliseconds1"> s </p>
+            <p id="miliseconds0"> s </p>
         </div>
         <div class="container button-container"> 
-            <button class="btn btn1" onclick="startStopwatch()"> Start </button>
-            <button class="btn btn2"> Stop </button>
-            <button class="btn btn3" onclick="resetStopwatch()"> Reset </button>
+            <button class="btn start" onclick="startStopwatch()"> Start </button>
+            <button class="btn stop"> Stop </button>
         </div>
         <script src="script.js"></script>
     </body>
