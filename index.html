@@ -3,45 +3,40 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Todor's Portfolio</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> Todor's Portofolio </title>
+        <link rel="stylesheet" media="screen and (min-width: 460px)" href="style.css"> 
+        <link rel="stylesheet" media="screen and (max-width: 460px)" href="styleMobile.css"> 
         <link rel="stylesheet" href="style.css">    
     </head>
     <body>
-        <div class="sidebar"> 
-            <nav> 
-                <ul> 
-                    <a href="blackjack/index.html"> <li> Blackjack </li> </a> 
-                    <a href="calculator/index.html"> <li> Calculator </li> </a>
-                    <a href="tic-tac-toe/index.html"> <li> Tic-Tac-Toe </li> </a>
-                    <a href="stopwatch/index.html"> <li> Stopwatch </li> </a>
-                    <a href="help/index.html" > <li>  Image Slider </li> </a>
-                    <li> Project 6 </li>
-                    <li> Project 7 </li>
-                    <li> Project 8 </li>
-                </ul>
-            </nav>
-        </div> 
         <div class="header-container">
+            <a class="logo" href="https://www.instagram.com/ioan.todor/"> 
+                <img class="logo" src="images/instagram-red.png">
+            </a>
+            <a class="logo" href="https://www.linkedin.com/in/ioan-todor-22a3aa2a1/"> 
+                <img class="logo" src="images/linked-red.png">
+            </a>
+            <a class="logo" href="https://github.com/todoor17"> 
+                <img class="logo" src="images/git-red.png">
+            </a>
             <div class="menu-container" onclick="toggleMenu(this)"> 
                 <div class="bar1"> </div>
                 <div class="bar2"> </div>
                 <div class="bar3"> </div>
             </div>
-            <a class="logo" href="https://www.instagram.com/ioan.todor/"> 
-                <img class="logo" src="images/instagram.png">
-            </a>
-            <a class="logo" href="https://www.linkedin.com/in/ioan-todor-22a3aa2a1/"> 
-                <img class="logo" src="images/linked.png">
-            </a>
-            <a class="logo" href="https://github.com/todoor17"> 
-                <img class="logo" src="images/git.png">
-            </a>
         </div>
 
         <div class="content-container">
-            <div class="text"> Tap the menu icon to see my projects! </div>
-        </div>
+            <div class="sliding-container">
+                <button class="btn" id="btnLeft"> < </button>
+                <a id="link" href="blackjack/index.html"> <img class="image"> </a> 
+                <button class="btn" id="btnRight"> > </button>
+            </div>
         </div> 
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js"> </script>
         <script src="script.js"> </script>
+
     </body>
 </html>
