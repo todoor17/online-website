@@ -76,4 +76,3 @@ function toggleMenu(x) {
     x.classList.toggle("change");
     document.querySelector(".content-container").classList.toggle("shift")
 }
-

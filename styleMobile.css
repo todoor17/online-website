@@ -26,9 +26,15 @@ body {
 }
 
 .text {
-    font-size: 30px;
+    position: absolute;
+    top: 23vh;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    font-size: 15px;
     font-weight: bolder;
     color: white;
+    width: 100vw;
 }
 
 .text:hover {
