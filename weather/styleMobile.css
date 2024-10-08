@@ -15,7 +15,7 @@ body {
     justify-content: center;
     align-items: center;
     width: 100vw;
-    gap: 30px;
+    gap: 20px;
 }
 
 .input-container {
@@ -32,7 +32,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 240px;
+    width: 200px;
     height: 30px;
     font-size: 20px;
     padding-left: 15px;
@@ -45,6 +45,9 @@ body {
 }
 
 .btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 30px;
     height: 30px;
     outline: 0;
@@ -53,7 +56,7 @@ body {
 }
 
 .btn-image {
-    height: 20px;
+    height: 15px;
     width: auto;
 }
 
@@ -63,7 +66,7 @@ body {
     align-items: center;
     background-color: #0198f1;
     height: 200px;
-    width: 320px;
+    width: 280px;
     background: rgb(2,0,36);
     background: linear-gradient(11deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 7%, rgba(0,212,255,1) 100%);
     flex-direction: row;
@@ -76,7 +79,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 25px;
+    font-size: 20px;
     font-weight: 600;
 }
 
@@ -84,7 +87,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 15px;
+    font-size: 13px;
     color: white;
 }
 
@@ -94,7 +97,7 @@ body {
 }
 
 .left-part, .right-part {
-    height: 95%;
+    height: 100%;
     width: 49%;
     display: flex;
     flex-direction: column;
@@ -104,7 +107,7 @@ body {
 }
 
 .right-part {
-    gap: 5px;
+    gap: 4px;
 }
 
 .line-between {
@@ -118,7 +121,7 @@ body {
     font-family: "Merriweather", serif;
     font-weight: bold;
     font-style: normal;
-    font-size: 10px;
+    font-size: 9px;
 }
 
 .error {
