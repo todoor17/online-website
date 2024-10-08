@@ -1,0 +1,128 @@
+body {
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.content-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    gap: 50px;
+}
+
+.input-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 700px;
+    border-radius: 15px;
+    gap: 50px;
+}
+
+.input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 570px;
+    height: 60px;
+    font-size: 40px;
+    padding-left: 15px;
+    padding-right: 15px;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 20px;
+    outline: 0;
+    border: none;
+}
+
+.btn {
+    width: 70px;
+    height: 70px;
+    outline: 0;
+    border: 0;
+    border-radius: 50%;
+}
+
+.btn-image {
+    height: 30px;
+    width: auto;
+}
+
+.today-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #0198f1;
+    height: 350px;
+    width: 700px;
+    background: rgb(2,0,36);
+    background: linear-gradient(11deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 7%, rgba(0,212,255,1) 100%);
+    flex-direction: row;
+    justify-content: space-around;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.temperature-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 65px;
+    font-size: 60px;
+    font-weight: 600;
+}
+
+.today-smaller-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 42px;
+    font-size: 40px;
+    color: white;
+}
+
+.img {
+    width: auto;
+    height: 120px;
+}
+
+.left-part, .right-part {
+    height: 95%;
+    width: 49%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.line-between {
+    width: 0.7%;
+    height: 80%;
+    background-color: black;
+    border-radius: 15px;
+}
+
+.text {
+    font-family: "Merriweather", serif;
+    font-weight: bold;
+    font-style: normal;
+}
+
+.error {
+    position: absolute;
+    font-family: "Merriweather", serif;
+    font-weight: bold;
+    font-style: normal;
+    font-size: 50px;
+    opacity: 0;
+}

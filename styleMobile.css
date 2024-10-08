@@ -1,9 +1,7 @@
 body {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: black;
+    background-color: #010A10;
     height: 100vh;
     margin: 0;
     padding: 0;
@@ -23,22 +21,6 @@ body {
 .logo {
     height: 4vh;
     width: auto;
-}
-
-.text {
-    position: absolute;
-    top: 23vh;
-    display: flex;
-    justify-content: center;
-    align-items: start;
-    font-size: 15px;
-    font-weight: bolder;
-    color: white;
-    width: 100vw;
-}
-
-.text:hover {
-    color: #C50900;
 }
 
 .menu-container {
@@ -70,13 +52,17 @@ body {
 }
 
 .content-container {
+    background-color: #010A10;
+    position: relative;
     margin-left: 0;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 93vh;
     overflow: hidden;
+    gap: 10vh;
+    z-index: 0;
 }
 
 .sliding-container {
@@ -85,7 +71,7 @@ body {
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    gap: min(9vh, 9vw);
+    gap: 9vw;
 }
 
 .btn {
@@ -98,10 +84,6 @@ body {
     font-weight: bolder;
     font-size: min(4vh, 4vw);
     overflow: hidden;
-    opacity: 0;
-    pointer-events: none;
-    position: absolute;
-    z-index: 0;
 }
 
 .image {
@@ -111,4 +93,45 @@ body {
 
 * {
     touch-action: manipulation;
+}
+
+.loading-bar-container {
+    top: 7vh;
+    height: 93vh;
+    width: 100vw;
+    position: absolute;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    background-color: black;
+}
+
+.loading-div {
+    z-index: 1;
+    width: calc(100vw / 6);
+    height: 93vh;
+}
+
+.loading-div.div1 {
+    background-color: #C10206;
+}
+
+.loading-div.div2 {
+    background-color: #A50113;
+}
+
+.loading-div.div3 {
+    background-color: #FFFBF2;
+}
+
+.loading-div.div4 {
+    background-color: #DFE2DB;
+}
+
+.loading-div.div5 {
+    background-color: #211D21;
+}
+
+.loading-div.div6 {
+    background-color: #010A10;
 }

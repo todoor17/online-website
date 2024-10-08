@@ -8,15 +8,17 @@ const text = document.getElementsByClassName("text")[0];
 
 const bjImgPath = "images/blackjack.png";
 const calculatorImgPath = "images/calculator.png";
+const weatherImgPath = "images/weather.png";
 const ticTacToeImgPath = "images/tic-tac-toe.png";
 const stopwatchImgPath = "images/stopwatch.png";
 const bjPath = "blackjack/index.html";
 const calculatorPath = "calculator/index.html";
+const weatherPath = "weather/index.html";
 const ticTacToePath = "tic-tac-toe/index.html";
 const stopwatchPath = "stopwatch/index.html";
 
-const images = [bjImgPath, calculatorImgPath, ticTacToeImgPath, stopwatchImgPath];
-const paths = [bjPath, calculatorPath, ticTacToePath, stopwatchPath];
+const images = [bjImgPath, calculatorImgPath, weatherImgPath, ticTacToeImgPath, stopwatchImgPath];
+const paths = [bjPath, calculatorPath, weatherPath, ticTacToePath, stopwatchPath];
 
 let firstTouchX = 0, lastTouchX = 0;
 
@@ -76,3 +78,51 @@ function toggleMenu(x) {
     x.classList.toggle("change");
     document.querySelector(".content-container").classList.toggle("shift")
 }
+
+// const bar = document.getElementsByClassName("loading-bar")[0];
+// const loadingBarContainer = document.getElementsByClassName("loading-bar-container")[0];
+// let count1 = 0;
+
+// function progress() {
+//     bar.style.width = `${count1}vw`;
+//     bar.textContent = count1;
+//     if (count1 < 100) {
+//         count1 += 1;
+//         setTimeout(progress, 30);
+//     } else {
+//         // Hide the loading bar and fade-in the content
+//         loadingBarContainer.style.opacity = 0;
+//         loadingBarContainer.style.pointerEvents = "none";
+//     }
+// }
+
+// document.addEventListener("DOMContentLoaded", progress);
+
+const content = document.getElementsByClassName("content-container")[0];
+const bar1 = document.getElementsByClassName("loading-div div1")[0];
+const bar2 = document.getElementsByClassName("loading-div div2")[0];
+const bar3 = document.getElementsByClassName("loading-div div3")[0];
+const bar4 = document.getElementsByClassName("loading-div div4")[0];
+const bar5 = document.getElementsByClassName("loading-div div5")[0];
+const bar6 = document.getElementsByClassName("loading-div div6")[0];
+const bars = [bar1, bar2, bar3, bar4, bar5, bar6];
+
+function loadBar() {
+    let delay = 500;
+    bars.forEach(bar => {
+        setTimeout(() => {
+            bar.style.backgroundColor = "#010A10";
+        }, delay);
+        delay += 500;
+    });
+    setTimeout(() => {
+        bars.forEach(bar => {
+            bar.style.opacity = 0;
+            bar.style.pointerEvents = "none";
+            bar.style.zIndex = 0;
+
+        });
+    }, delay - 500);
+}
+
+document.addEventListener("DOMContentLoaded", loadBar);

@@ -1,9 +1,7 @@
 body {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: black;
+    background-color: #010A10;
     height: 100vh;
     margin: 0;
     padding: 0;
@@ -23,24 +21,6 @@ body {
 .logo {
     height: 4vh;
     width: auto;
-}
-
-.text {
-    position: absolute;
-    top: 23vh;
-    display: flex;
-    justify-content: center;
-    align-items: start;
-    font-size: 15px;
-    font-weight: bolder;
-    color: white;
-    width: 100vw;
-    opacity: 0;
-    pointer-events: none;
-}
-
-.text:hover {
-    color: #C50900;
 }
 
 .menu-container {
@@ -72,6 +52,8 @@ body {
 }
 
 .content-container {
+    background-color: #010A10;
+    position: relative;
     margin-left: 0;
     display: flex;
     flex-direction: column;
@@ -80,22 +62,21 @@ body {
     height: 93vh;
     overflow: hidden;
     gap: 10vh;
+    z-index: 0;
 }
 
 .sliding-container {
-    width: 100vw;
     display: flex;
-    flex-direction: row;
-    align-items: center;
     justify-content: center;
-    gap: min(9vh, 9vw);
+    align-items: center;
+    gap: 5vw;
 }
 
 .btn {
-    background-color: #c10206;
+    background-color: #a50113;
     outline: 0;
     border: 0;
-    width: min(7vh, 7vw);
+    width: min(5vh, 5vw);
     aspect-ratio: 1 / 1;
     border-radius: 50%;
     font-weight: bolder;
@@ -110,4 +91,44 @@ body {
 
 * {
     touch-action: manipulation;
+}
+
+.loading-bar-container {
+    top: 7vh;
+    height: 93vh;
+    width: 100vw;
+    position: absolute;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    background-color: black;}
+
+.loading-div {
+    z-index: 1;
+    width: calc(100vw / 6);
+    height: 93vh;
+}
+
+.loading-div.div1 {
+    background-color: #C10206;
+}
+
+.loading-div.div2 {
+    background-color: #A50113;
+}
+
+.loading-div.div3 {
+    background-color: #FFFBF2;
+}
+
+.loading-div.div4 {
+    background-color: #DFE2DB;
+}
+
+.loading-div.div5 {
+    background-color: #211D21;
+}
+
+.loading-div.div6 {
+    background-color: #010A10;
 }
