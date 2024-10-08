@@ -79,25 +79,6 @@ function toggleMenu(x) {
     document.querySelector(".content-container").classList.toggle("shift")
 }
 
-// const bar = document.getElementsByClassName("loading-bar")[0];
-// const loadingBarContainer = document.getElementsByClassName("loading-bar-container")[0];
-// let count1 = 0;
-
-// function progress() {
-//     bar.style.width = `${count1}vw`;
-//     bar.textContent = count1;
-//     if (count1 < 100) {
-//         count1 += 1;
-//         setTimeout(progress, 30);
-//     } else {
-//         // Hide the loading bar and fade-in the content
-//         loadingBarContainer.style.opacity = 0;
-//         loadingBarContainer.style.pointerEvents = "none";
-//     }
-// }
-
-// document.addEventListener("DOMContentLoaded", progress);
-
 const content = document.getElementsByClassName("content-container")[0];
 const bar1 = document.getElementsByClassName("loading-div div1")[0];
 const bar2 = document.getElementsByClassName("loading-div div2")[0];

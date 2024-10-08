@@ -21,7 +21,7 @@ const todayImagePaths = [["Clear", "Clear", "Clouds", "Clouds", "Rain", "Rain", 
 
 async function fetchWeather(cityName) {
     const apiKey = "afe6c04f9adb47afc96faba335161cdc";
-    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}`;
+    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&lang={ro}`;
 
     try {
         const response = await fetch(apiUrl);
@@ -48,8 +48,6 @@ async function fetchWeather(cityName) {
 
             setWeatherImage(typeOfWeather, localHour, sunrise, sunset);
 
-
-            todayText.textContent = temperature + "°C";
             todaySmallerText.textContent = cityName + ", " + countryTag;
             if (minutes < 10) {
                 localTimeText.textContent = "Local time: " + localHour + ":0" + minutes; 
@@ -57,7 +55,7 @@ async function fetchWeather(cityName) {
                 localTimeText.textContent = "Local time: " + localHour + ":" + minutes;
             }
 
-            return { lat: data.coord.lat, lon: data.coord.lon };
+            return { lat: data.coord.lat, lon: data.coord.lon, hour: localHour };
         }
     } catch(error) {
         console.error(error);
@@ -65,7 +63,7 @@ async function fetchWeather(cityName) {
 }
 
 async function fetchMoreWeather(cityName) {
-    let { lat, lon } = await fetchWeather(cityName);
+    let { lat, lon, hour } = await fetchWeather(cityName);
     const apiKey = "afe6c04f9adb47afc96faba335161cdc";
     const apiUrl = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&hourly=temperature_2m,precipitation_probability&daily=temperature_2m_max,temperature_2m_min&timezone=Europe%2FMoscow`;
 
@@ -75,11 +73,12 @@ async function fetchMoreWeather(cityName) {
             throw new Error("Error");
         } else {
             const data = await response.json();
-
+            const temperature = data.hourly.temperature_2m[parseInt(hour)];
             const minTempToday = data.daily.temperature_2m_min[0];
             const maxTempToday = data.daily.temperature_2m_max[0];
             const precipitations = data.hourly.precipitation_probability[0]; 
 
+            todayText.textContent = temperature + "°C";
             minTempText.textContent = "Min temp today: " + minTempToday + "°C";
             maxTempText.textContent = "Max temp today: " + maxTempToday + "°C";
             precipitationText.textContent = "Precipitations now: " + precipitations + "%";
