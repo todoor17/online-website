@@ -75,7 +75,10 @@ body {
 }
 
 .btn {
+    -webkit-appearance: none;
+    appearance: none;
     background-color: #c10206;
+    color: black;
     outline: 0;
     border: 0;
     width: min(7vh, 7vw);
@@ -134,4 +137,11 @@ body {
 
 .loading-div.div6 {
     background-color: #010A10;
+}
+
+html, body {
+    height: 100%;
+    max-height: 100vh; 
+    overflow-x: hidden; 
+    overscroll-behavior: none; 
 }
