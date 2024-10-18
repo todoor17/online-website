@@ -2,7 +2,13 @@ const input = document.getElementsByClassName("input")[0];
 const table = document.getElementsByClassName("table")[0];
 const reset = document.getElementsByClassName("reset")[0];
 
-document.addEventListener("DOMContentLoaded", setColor);
+document.addEventListener("DOMContentLoaded", () => {
+    setColor();
+    addTableRows(30);
+    addCells(30);
+    choosenColor = "black";
+    changeCellColor();
+});
 
 let choosenColor;
 
