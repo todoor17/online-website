@@ -10,15 +10,17 @@ const bjImgPath = "images/blackjack.png";
 const calculatorImgPath = "images/calculator.png";
 const weatherImgPath = "images/weather.png";
 const ticTacToeImgPath = "images/tic-tac-toe.png";
-const stopwatchImgPath = "images/stopwatch.png";
+const stopwatchImgPath = "images/stopwatch.png"
+const etchAScketchImgPath = "images/etch-a-sketch.png"
 const bjPath = "blackjack/index.html";
 const calculatorPath = "calculator/index.html";
 const weatherPath = "weather/index.html";
 const ticTacToePath = "tic-tac-toe/index.html";
 const stopwatchPath = "stopwatch/index.html";
+const etchASketchPath = "etch-a-sketch/index.html";
 
-const images = [bjImgPath, calculatorImgPath, weatherImgPath, ticTacToeImgPath, stopwatchImgPath];
-const paths = [bjPath, calculatorPath, weatherPath, ticTacToePath, stopwatchPath];
+const images = [bjImgPath, calculatorImgPath, weatherImgPath, ticTacToeImgPath, stopwatchImgPath, etchAScketchImgPath];
+const paths = [bjPath, calculatorPath, weatherPath, ticTacToePath, stopwatchPath, etchASketchPath];
 
 let firstTouchX = 0, lastTouchX = 0;
 
@@ -26,18 +28,18 @@ let count = 0;
 
 btnLeft.addEventListener("click", function() {
     if (count == 0) {
-        count = 3;
+        count = 6;
     } else {
         count--;
     }
-    image.src = images[count % 4];
-    link.href = paths[count % 4];
+    image.src = images[count % 6];
+    link.href = paths[count % 6];
 });
 
 btnRight.addEventListener("click", function() {
     count++;
-    image.src = images[count % 4];
-    link.href = paths[count % 4];
+    image.src = images[count % 6];
+    link.href = paths[count % 6];
 });
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -58,19 +60,19 @@ imageContainer.addEventListener("touchend", function(event) {
 
     if (firstTouchX > lastTouchX) { // swipe left
         if (count == 0) {
-            count = 3;
+            count = 6;
         } else {
             count--;
         }
-        image.src = images[count % 4];
-        link.href = paths[count % 4];
+        image.src = images[count % 6];
+        link.href = paths[count % 6];
     } else if (firstTouchX == lastTouchX) {
         
     }
     else { // swipe right
         count++;
-        image.src = images[count % 4];
-        link.href = paths[count % 4];
+        image.src = images[count % 6];
+        link.href = paths[count % 6];
     } 
 });
 

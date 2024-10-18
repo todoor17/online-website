@@ -1,0 +1,105 @@
+body, html {
+    box-sizing: border-box;
+    padding: 0;
+}
+
+body {
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.content-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.input {
+
+}
+
+.panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+    height: 500px;
+    background-color: gray;
+    gap: 20px;
+}
+
+.table {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+    height: 500px;
+    background-color: white;
+}
+
+.table-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: white;
+}
+
+.cell {
+    height: 100%;
+    background-color: white;
+}
+
+.color {
+    height: 30px;
+    width: 30px;
+    box-sizing: border-box;
+    z-index: 2;
+}
+
+.red {
+    background-color: #e81416;   
+}
+
+.orange {
+    background-color: #ffa500;
+}
+
+.yellow {
+    background-color:  #faeb36;
+}
+
+.green {
+    background-color: #79c314;
+}
+
+.blue {
+    background-color: #487de7;
+}
+
+.violet {
+    background-color: #70369d;
+}
+
+.white {
+    background-color: white;
+}
+
+.black {
+    background-color: black;
+}
+
+.colors-row {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}

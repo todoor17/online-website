@@ -1,0 +1,153 @@
+body {
+    background-color: black;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+}
+
+.content-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.left-side, .right-side {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 50%;
+    gap: 10%;
+}
+
+.right-side {
+    gap: 0;
+}
+
+.buttons-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10%;
+}
+
+.input {
+    height: 600px;
+    width: 400px;
+}
+
+.img {
+    height: 40px;
+    width: 40px;
+}
+
+.wheel {
+    position: relative;
+    height: 400px;
+    width: 400px;
+    border: 5px solid white;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.segment, .segment2, .segment3, .segment4, .segment5, .segment6, .segment7, .segment8 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform-origin: center;
+    background-color: red;
+}
+
+.segment.segment1 {
+    clip-path: polygon(0 100%, 100% 100%, 100% 0, 0 0);
+}
+
+.segment.segment2 {
+    clip-path: polygon(0 100%, 100% 100%, 100% 50%, 0 50%);
+}
+
+.segment.segment3 {
+    clip-path: polygon(0 100%, 79% 100%, 50% 50%, 0 50%);
+}
+
+.segment.segment4 {
+    clip-path: polygon(0 100%, 50% 100%, 50% 50%, 0 50%);
+}
+
+.segment.segment5 {
+    clip-path: polygon(0 100%, 36% 100%, 50% 50%, 0 50%);
+}
+
+.segment.segment6 {
+    clip-path: polygon(0 100%, 22% 100%, 50% 50%, 0 50%);
+}
+
+.segment.segment7 {
+    clip-path: polygon(0 100%, 13% 100%, 50% 50%, 0 50%);
+}
+
+.segment.segment8 {
+    clip-path: polygon(0 100%, 0.5% 100%, 50% 50%, 0 50%);
+}
+
+/* .segment.segment7.segment72 {
+    background-color: white;
+    transform: rotate(51.43deg);
+}
+.segment.segment7.segment73 {
+    background-color: aqua;
+    transform: rotate(102.86deg);
+}
+.segment.segment7.segment74 {
+    background-color: brown;
+    transform: rotate(154.29deg);
+}
+.segment.segment7.segment75 {
+    background-color: green;
+    transform: rotate(205.72deg);
+}
+.segment.segment7.segment76 {
+    background-color: black;
+    transform: rotate(257.15deg);
+}
+.segment.segment7.segment77 {
+    background-color: rgb(4, 0, 255);
+    transform: rotate(308.58deg); */
+
+/* .segment.segment8.segment82 {
+    background-color: white;
+    transform: rotate(45deg);
+}
+.segment.segment8.segment83 {
+    background-color: aqua;
+    transform: rotate(90deg);
+}
+.segment.segment8.segment84 {
+    background-color: brown;
+    transform: rotate(135deg);
+}
+.segment.segment8.segment85 {
+    background-color: green;
+    transform: rotate(180deg);
+}
+.segment.segment8.segment86 {
+    background-color: black;
+    transform: rotate(225deg);
+}
+.segment.segment8.segment87 {
+    background-color: rgb(4, 0, 255);
+    transform: rotate(270deg);
+}
+.segment.segment8.segment88 {
+    background-color: pink;
+    transform: rotate(315deg);
+} */

@@ -75,6 +75,9 @@ body {
 }
 
 .btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     -webkit-appearance: none;
     appearance: none;
     background-color: #c10206;
